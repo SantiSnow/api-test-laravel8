@@ -9,6 +9,9 @@ class usuariosController extends Controller
 {
 
     public function mostrarUsuarios(){
-        return User::select(['id', 'nombre', 'email', 'created_at'])->get();
+        return User::select(['id', 'name', 'email', 'created_at'])->get()->map(function ($user){
+            $user->registered = $user->created_at->diffForHumans();
+            return $user;
+        });
     }
 }
