@@ -12,5 +12,10 @@ class usuariosController extends Controller
         return User::select(['id', 'name', 'email', 'created_at'])->get();
     }
 
+    public function show($id){
+        return User::select(['id', 'name', 'email', 'created_at'])
+            ->where('id', $id)
+            ->get();
+    }
 
 }

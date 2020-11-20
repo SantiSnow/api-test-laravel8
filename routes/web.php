@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/usuarios', [usuariosController::class, 'mostrarUsuarios']);
+
+Route::get('/usuario/{id}', [usuariosController::class, 'show']);
